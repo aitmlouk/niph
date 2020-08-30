@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record model="ir.ui.view" id="student_wizard_form_view">
+            <field name="name">calc.taux.wiz.form</field>
+            <field name="model">calc.taux.wiz</field>
+            <field name="arch" type="xml">
+                <form string="Mise à jour taux SMCP">
+                    <separator string="Mise à jour taux SMCP" colspan="4"/>
+                    <group>
+                        <field name="new_rate"/>
+                    </group>
+                   <footer>
+                       <button special="cancel" string="Fermer"/>
+                       <button name="rate_update" string="Mise à jour" type="object"/>
+                   </footer>
+               </form>
+            </field>
+        </record>
+
+        <!-- calc.age.wiz.action -->
+        <record model="ir.actions.act_window" id="mise_wizard_action_view">
+            <field name="name">Mise à jour taux SMCP</field>
+            <field name="res_model">calc.taux.wiz</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+</odoo>

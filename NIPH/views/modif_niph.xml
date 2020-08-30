@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!--container-->
+    <record model="ir.ui.view" id="container_tree_view">
+       <field name="name">cont.cont.tree</field>
+       <field name="model">cont.cont</field>
+       <field name="arch" type="xml">
+          <tree  string="Tailes des container" editable="bottom">
+              <field name="tail_container"/>
+          </tree>
+       </field>
+    </record>
+
+
+  <!-- Action view -->
+<record id="container_action_view" model="ir.actions.act_window">
+        <field name="name">Container</field>
+        <field name="res_model">cont.cont</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <record model="ir.ui.view" id="destination_tree_view">
+       <field name="name">dest.dest.tree</field>
+       <field name="model">dest.dest</field>
+       <field name="arch" type="xml">
+          <tree string="Destinations" editable="bottom">
+              <field name="name"/>
+          </tree>
+       </field>
+   </record>
+
+
+  <!-- Action view -->
+   <record id="destination_action_view" model="ir.actions.act_window">
+        <field name="name">Destination</field>
+        <field name="res_model">dest.dest</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- <record model="ir.ui.view" id="cd_tree_view">
+       <field name="name">listc.listc</field>
+       <field name="model">listc.listc</field>
+       <field name="arch" type="xml">
+          <tree string="Listes des articles pour gestion coûts devis" editable="bottom">
+              <field name="espece"/>
+              <field name="codevise"/>
+          </tree>
+       </field>
+   </record>
+
+
+  <!- Action view -->
+   <!--   <record id="cd_action_view" model="ir.actions.act_window">
+        <field name="name">Coût pour devise</field>
+        <field name="res_model">listc.listc</field>
+        <field name="view_mode">tree</field>
+    </record>-->
+
+        <record model="ir.ui.view" id="sp_tree_view">
+       <field name="name">smcp.smcp.tree</field>
+       <field name="model">smcp.smcp</field>
+       <field name="arch" type="xml">
+          <tree string="Liste des taxes SMCP " editable="bottom">
+              <field name="name"/>
+              <field name="prix_base"/>
+              <field name="currency_id"/>
+              <field name="taux"/>
+          </tree>
+       </field>
+   </record>
+
+
+  <!-- Action view -->
+   <record id="sp_action_view" model="ir.actions.act_window">
+        <field name="name">SMCP</field>
+        <field name="res_model">smcp.smcp</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+<!--**********cout fix*********-->
+    <record model="ir.ui.view" id="coutfix_tree_view">
+       <field name="name">coutfix.coutfix.tree</field>
+       <field name="model">coutfix.coutfix</field>
+       <field name="arch" type="xml">
+          <tree string="Couts fixes" editable="bottom">
+              <field name="name"/>
+              <field name="montant"/>
+          </tree>
+       </field>
+   </record>
+
+
+  <!-- Action view -->
+   <record id="coutfix_action_view" model="ir.actions.act_window">
+        <field name="name">Couts fixes</field>
+        <field name="res_model">coutfix.coutfix</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!--**********gestion des marges*********-->
+    <record model="ir.ui.view" id="gestMarge_tree_view">
+       <field name="name">gestion.marge.tree</field>
+       <field name="model">gestion.marge</field>
+       <field name="arch" type="xml">
+          <tree string="Couts fixes" editable="bottom">
+              <field name="product_id"/>
+              <field name="marge"/>
+              <field name="devise"/>
+              <field name="unity"/>
+          </tree>
+       </field>
+   </record>
+
+
+  <!-- Action view -->
+   <record id="gestMarge_action_view" model="ir.actions.act_window">
+        <field name="name">Gestion des marges</field>
+        <field name="res_model">gestion.marge</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+
+
+</odoo>

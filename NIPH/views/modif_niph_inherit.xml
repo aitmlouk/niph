@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+          <record model="ir.ui.view" id="fourniseur_inherit_form_view">
+                <field name="name">res.partner.form.inherit</field>
+                <field name="model">res.partner</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="base.view_partner_form"/>
+                <field name="arch" type="xml">
+                  <xpath expr="//group[@name='purchase']" position="inside">
+                        <field name="supplier_ok"/>
+                  </xpath>
+                </field>
+            </record>
+
+
+
+      <!-- product.supplierinfo: form view inherit-->
+       <record model="ir.ui.view" id="achat_inherit_form_view">
+                <field name="name">product.supplierinfo.form.inherit</field>
+                <field name="model">product.supplierinfo</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="product.product_supplierinfo_form_view"/>
+                <field name="arch" type="xml">
+                     <xpath expr="//group[@name='vendor']" position="inside">
+			        	 <field name="destination_id"/>
+                         <field name="container_id"/>
+                         <field name="standard"/>
+                     </xpath>
+                </field>
+            </record>
+
+                <!-- product.supplierinfo: tree view inherit-->
+        <record model="ir.ui.view" id="achat_inherit_tree_view">
+                <field name="name">product.supplierinfo.tree</field>
+                <field name="model">product.supplierinfo</field>
+                <field name="type">tree</field>
+                <field name="inherit_id" ref="product.product_supplierinfo_tree_view"/>
+                <field name="arch" type="xml">
+			        <xpath expr="//field[@name='name']" position="after">
+			        	<field name="standard"/>
+			        </xpath>
+                     <xpath expr="//field[@name='min_qty']" position="before">
+			        	 <field name="destination_id"/>
+                         <field name="container_id"/>
+			        </xpath>
+                </field>
+            </record>
+
+
+            <!--Tree view-->
+
+           <record model="ir.ui.view" id="act_inherit_form_view">
+                <field name="name">account.tax.form.inherit</field>
+                <field name="model">account.tax</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="account.view_tax_form"/>
+                <field name="arch" type="xml">
+                     <xpath expr="//field[@name='type_tax_use']" position="after">
+                         <field name="ex_tva_achats"/>
+                         <field name="ex_tva_ventes"/>
+                     </xpath>
+                </field>
+            </record>
+
+                <!-- acount.tax: tree view inherit-->
+
+            <record model="ir.ui.view" id="act_inherit_tree_view">
+                <field name="name">account.tax.tree</field>
+                <field name="model">account.tax</field>
+                <field name="type">tree</field>
+                <field name="inherit_id" ref="account.view_tax_tree"/>
+                <field name="arch" type="xml">
+                     <xpath expr="//field[@name='name']" position="after">
+                         <field name="ex_tva_achats"/>
+                         <field name="ex_tva_ventes"/>
+                     </xpath>
+                </field>
+            </record>
+
+
+            <!--Tree view-->
+
+           <record model="ir.ui.view" id="art_inherit_form_view">
+                <field name="name">product.template.form.inherit</field>
+                <field name="model">product.template</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="product.product_template_only_form_view"/>
+                <field name="arch" type="xml">
+                    <xpath expr="//field[@name='type']" position="after">
+                        <field name="espece_id"/>
+                    </xpath>
+                    <xpath expr="//field[@name='categ_id']" position="after">
+                        <field name="type_produit" widget="radio"/>
+                    </xpath>
+
+                     <group name="bill" position="after">
+                        <group string="Informations pour calcul prix de revient">
+                            <field name="codevise"/>
+                        </group>
+                     </group>
+
+                </field>
+            </record>
+
+        <!-- : tree view inherit-->
+            <record model="ir.ui.view" id="li_inherit_tree_view">
+                <field name="name">product.template.tree</field>
+                <field name="model">product.template</field>
+                <field name="type">tree</field>
+                <field name="inherit_id" ref="product.product_template_tree_view"/>
+                <field name="arch" type="xml">
+                        <field name="default_code" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                        </field>
+
+                         <field name="list_price" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                        </field>
+                        <field name="standard_price" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                        </field>
+                        <field name="qty_available" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                        </field>
+                        <field name="virtual_available" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                        </field>
+                       <field name="barcode" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                        </field>
+                        <field name="categ_id" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                        </field>
+                        <field name="type" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                        </field>
+                        <field name="activity_exception_decoration" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                        </field>
+                        <field name="sequence" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                        </field>
+			        <xpath expr="//field[@name='name']" position="after">
+                        <field name="codevise"/>
+			        </xpath>
+                    <xpath expr="//tree" position="attributes">
+                        <attribute name="attribute"/>
+			        </xpath>
+                </field>
+            </record>
+
+    <record id="li_action_view" model="ir.actions.act_window">
+        <field name="name">Coût pour devis</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">tree</field>
+      </record>
+
+
+     <record model="ir.ui.view" id="pro_inherit_form_view">
+        <field name="name">product.product.form.inherit</field>
+        <field name="model">product.product</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='type']" position="after">
+                <field name="espece_id"/>
+            </xpath>
+            <xpath expr="//field[@name='categ_id']" position="after">
+                <field name="type_produit" widget="radio"/>
+            </xpath>
+
+             <group name="bill" position="after">
+                <group string="Informations pour calcul prix de revient">
+                    <field name="codevise"/>
+                </group>
+             </group>
+
+        </field>
+    </record>
+
+    <!--commande achats-->
+    <record model="ir.ui.view" id="sale_inherit_form_view">
+        <field name="name">purchase.order.form.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+
+             <xpath expr="//field[@name='partner_ref']" position="after">
+                 <field name="sale_id"/>
+             </xpath>
+
+            <xpath expr="//field[@name='company_id']" position="after">
+                 <field name="transport" type="checkbox"/>
+                 <field name="prestation" type="checkbox"/>
+                <field name="poissons" type="checkbox"/>
+             </xpath>
+
+            <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+                <page name="interm" string="Intermédiaires">
+                  <field name="purchase_inter_ids">
+                    <tree string="Gestion intermédiaires achat" editable="bottom">
+                      <field name="name" attrs="{}" invisible="1"/>
+                        <field name="partner_id"/>
+                        <field name="product_id"/>
+                        <field name="amount"/>
+                        <field name="qty"/>
+                        <field name="total" sum="Total"/>
+                    </tree>
+                  </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- product.supplierinfo: tree view inherit-->
+    <record model="ir.ui.view" id="sale_inherit_tree_view">
+        <field name="name">purchase.order.tree</field>
+        <field name="model">purchase.order</field>
+        <field name="type">tree</field>
+        <field name="inherit_id" ref="purchase.purchase_order_tree"/>
+        <field name="arch" type="xml">
+             <xpath expr="//field[@name='name']" position="before">
+                 <field name="sale_id"/>
+                 <field name="client"/>
+            </xpath>
+        </field>
+    </record>
+
+  <!--incoterm-->
+    <record model="ir.ui.view" id="ao_incoterm_tree_view">
+        <field name="name">account.incoterms.form.inherit</field>
+        <field name="model">account.incoterms</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Incoterm" editable="top">
+                <field name="code"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="ao_action_view" model="ir.actions.act_window">
+        <field name="name">Incoterm</field>
+        <field name="res_model">account.incoterms</field>
+        <field name="view_mode">tree</field>
+      </record>
+
+
+   <record model="ir.ui.view" id="oa_inherit_form_view_inco">
+        <field name="name">sale.order.form.inherit.inco</field>
+        <field name="model">sale.order</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="sale_stock.view_order_form_inherit_sale_stock"/>
+        <field name="arch" type="xml">
+
+            <field name="incoterm" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="incoterm" widget="selection" groups="sale_stock.group_display_incoterm"/>
+                <field name="frais_port"/>
+                <field name="avec_present"/>
+
+                <field name="currency_id" invisible="1"/>
+                <field name="currency_id_pricelist" invisible="1"/>
+                <field name="destination_id" attrs="{'invisible': [('currency_id_pricelist', '=', 'currency_id')]}"/>
+                <field name="container_id" attrs="{'invisible': [('currency_id_pricelist', '=', 'currency_id')]}"/>
+                <field name="change_rate"/>
+            </xpath>
+
+            <xpath expr="//form[1]/sheet[1]/group[1]" position="after">
+                <group>
+                    <group string="Intermédiaires vente">
+                        <field name="sale_inter_ids" nolabel="1" >
+                          <tree editable="bottom">
+                            <field name="partner_id"/>
+                            <field name="product_id"/>
+                            <field name="amount"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="qty"/>
+                            <field name="total" sum="Total"/>
+                          </tree>
+                        </field>
+                      </group>
+                </group>
+            </xpath>
+
+            <xpath expr="//page[@name='order_lines']" position="after">
+                <page string="Détails prix de revient">
+                    <field name="purchase_fish_ids"/>
+                </page>
+            </xpath>
+
+            <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='order_lines']/field[@name='order_line']/tree[1]/field[@name='name']" position="attributes">
+                <attribute name="attrs">{}</attribute>
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='order_lines']/field[@name='order_line']/tree[1]/field[@name='price_unit']" position="before">
+                <field name="commission"/>
+            </xpath>
+
+        </field>
+    </record>
+
+
+</odoo>

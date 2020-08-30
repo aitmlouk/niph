@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<!--  menus  -->
+      <menuitem id="cout_menu" parent="sale.product_menu_catalog" action="li_action_view" name="Coût pour devis" />
+      <menuitem id="fix_menu" parent="sale.menu_sale_config" action="coutfix_action_view" name="Coût fixes" sequence="3"/>
+       <menuitem id="container_menu" parent="sale.menu_sale_config" action="container_action_view" name="Containers" />
+      <menuitem id="destination_menu" parent="sale.menu_sale_config" action="destination_action_view" name="Destinations export" />
+      <menuitem id="smcp_menu" parent="sale.menu_sale_config" action="sp_action_view" name="Taxes SMCP" />
+      <menuitem id="mis_menu" parent="sale.menu_sale_config" action="mise_wizard_action_view" name="Mise à jour taux SMCP" />
+      <menuitem id="smcp_menu" parent="sale.product_menu_catalog" action="gestMarge_action_view" name="Gestion des marges" />
+
+      <menuitem id="inco_menu" parent="sale.menu_sale_config" action="ao_action_view" name="Incoterm" />
+
+</odoo>
