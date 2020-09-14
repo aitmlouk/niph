@@ -21,8 +21,9 @@
     'data': [
 
         'security/ir.model.access.csv',
-        'views/modif_niph_inherit.xml',
-        'views/modif_niph.xml',
+        #'views/modif_niph_inherit.xml',
+        #'views/modif_niph.xml',
+        'views/niph_view.xml',
         'wizard/wiz_view.xml',
         'menu.xml',
     ],

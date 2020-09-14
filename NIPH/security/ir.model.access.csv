@@ -1,11 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_cont_cont_user,cont.cont,model_cont_cont,,1,1,1,0
-access_dest_dest_user,dest.dest,model_dest_dest,,1,1,1,0
 access_smcp_smcp_user,smcp.smcp,model_smcp_smcp,,1,1,1,0
-access_coufix_coufix_user,coutfix.coutfix,model_coutfix_coutfix,,1,1,1,0
-access_gestion_marge_user,gestion.marge,model_gestion_marge,,1,1,1,0
-access_sale_inter_user,sale.inter.order.line,model_sale_inter_order_line,,1,1,1,0
-access_purchase_inter_user,purchase.inter.order.line,model_purchase_inter_order_line,,1,1,1,0
+access_clingtax_lingtax_user,lingtax.lingtax,model_lingtax_lingtax,,1,1,1,0
+
 
 
 

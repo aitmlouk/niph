@@ -1,1 +1,1 @@
-from . import ClassNiph
+from . import niph
