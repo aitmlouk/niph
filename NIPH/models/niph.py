@@ -16,7 +16,7 @@ class TaxSmcp(models.Model):
 class LignesVentesTaxesSmcp(models.Model):
     _name="lingtax.lingtax"
 
-    qty = fields.Float(string="Quantité", related="sale_order_line_id.product_uom_qty")
+    qty = fields.Float(string="Quantité")
     price_base = fields.Float(string="Prix de base")
     order_id = fields.Many2one('sale.order', string="Bon de commande")
     name = fields.Char(string="Espèce", related="smcp_id.name")
